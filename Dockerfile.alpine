@@ -64,7 +64,7 @@ RUN apk add -U \
 RUN mkdir -p /dist /dist/ffmpeg_sources /dist/bin && cd /dist && \
   curl -OLk http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz && \
   tar -xvz -f ffmpeg-${FFMPEG_VERSION}.tar.gz && \
-  rm ffmpeg-${FFMPEG_VERSION}.tar.gz
+  rm ffmpeg-${FFMPEG_VERSION}.tar.gz && \
   curl -OLk https://sw.blackmagicdesign.com/DeckLink/v12.4.2/Blackmagic_DeckLink_SDK_12.4.2.zip?Key-Pair-Id=APKAJTKA3ZJMJRQITVEA&Signature=NgRKPj2c11u3+mJwdWa0S9pnwIF4KpoSWze4hyH8TmYOh0KWzJrUPgDuPQ+hBx+y8iOSfuRSwnUFEWCEileHBkKnO+HQbJb1taoBSgofx7zlPcp699+ZwJ66OoSn7iFzOdrOLbNk7wOslcldmtk7U7vtNT3PD3sc4CbMKZXA6vkL/U3mjQcuwXl6wjc2a4ZSCsjrNtsYYWcQhNYIlD3i1tMRQ+ia1WkH3Xf4iyAqP0tu1rXKIU30rx1rzqzInBwbsNkWZ9t1jvrEeohFxsF4WvcdtJzNbK42SxKLNCXRE8ZesjMBOivKjrjKsMMmKkPbDzXNZVuRbbnAHSubgdmz6A==&Expires=1685109280 && \
   unzip Blackmagic_DeckLink_SDK_*.zip && \
   cp -r Blackmagic\ DeckLink\ SDK\ */Linux/ /dist/ffmpeg_sources/BMD_SDK
