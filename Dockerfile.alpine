@@ -72,9 +72,10 @@ RUN cd /dist/ffmpeg-${FFMPEG_VERSION} && \
   patch -p1 < /contrib/ffmpeg-jsonstats.patch && \
   patch -p1 < /contrib/ffmpeg-hlsbitrate.patch && \
   ./configure \
-  --extra-version=datarhei \
+  --extra-version=pz \
   --prefix="${SRC}" \
   --extra-libs="-lpthread -lxml2 -lm -lz -lsupc++ -lstdc++ -lssl -lcrypto -lz -lc -ldl" \
+  --extra-cflags="-I$HOME/ffmpeg_build/include -I$HOME/ffmpeg_sources/BMD_SDK/include" \
   --enable-nonfree \
   --enable-gpl \
   --enable-version3 \
@@ -96,7 +97,8 @@ RUN cd /dist/ffmpeg-${FFMPEG_VERSION} && \
   --disable-ffplay \
   --disable-debug \
   --disable-doc \
-  --disable-shared && \
+  --disable-shared \
+  --enable-decklink && \
   make -j$(nproc) && \
   make install
 
